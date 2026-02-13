@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi Literasi Keuangan - Pegadaian</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Simulasi Literasi Keuangan</h1>
+  <div id="scoreBox">Skor: <span id="score">0</span></div>
+</header>
+
+<main>
+
+  <!-- Start Screen -->
+  <section id="startScreen" class="active">
+    <h2>Memahami Gadai, Bunga & Risiko</h2>
+    <p>Kamu akan belajar tentang sistem gadai melalui simulasi interaktif.</p>
+    <button id="startBtn">Mulai Simulasi</button>
+  </section>
+
+  <!-- Game Screen -->
+  <section id="gameScreen">
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <div id="dialogBox"></div>
+
+    <div id="questionBox"></div>
+
+    <div id="feedback"></div>
+
+    <button id="nextBtn" style="display:none;">Lanjut</button>
+  </section>
+
+  <!-- Result Screen -->
+  <section id="resultScreen">
+    <h2>Hasil Akhir</h2>
+    <p id="finalScore"></p>
+    <p id="evaluation"></p>
+    <button onclick="location.reload()">Ulangi Simulasi</button>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
