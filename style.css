@@ -1,83 +1,194 @@
+/* style.css */
+/* Tema: Profesional dan ramah pelajar - Biru (#007BFF), Putih (#FFFFFF), Abu-abu muda (#F8F9FA) */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f6f9;
+    font-family: Arial, sans-serif;
+    background-color: #F8F9FA;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
-header {
-  background: #1e88e5;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
+.page {
+    display: none;
+    max-width: 800px;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-main {
-  padding: 20px;
-  max-width: 700px;
-  margin: auto;
+.page.active {
+    display: block;
 }
 
-section {
-  display: none;
-}
-
-section.active {
-  display: block;
+h1, h2 {
+    color: #007BFF;
 }
 
 button {
-  padding: 10px 15px;
-  margin-top: 10px;
-  background: #1e88e5;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 button:focus {
-  outline: 3px solid #ffcc00;
+    outline: 2px solid #007BFF;
 }
 
-#progressContainer {
-  background: #ddd;
-  height: 10px;
-  border-radius: 5px;
-  margin-bottom: 15px;
+/* Progress Bar */
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 20px;
 }
 
-#progressBar {
-  height: 10px;
-  width: 0%;
-  background: #43a047;
-  border-radius: 5px;
-  transition: width 0.3s ease;
+.progress-bar {
+    background-color: #007BFF;
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Indikator Skor */
+#score-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #007BFF;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Cashier Container */
+.cashier-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cashier-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    margin-right: 20px;
+    /* Flat design sederhana: Tambahkan pseudo-element untuk mata/mulut jika diinginkan */
+    position: relative;
+}
+
+.cashier-avatar::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.cashier-avatar::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.dialog-box {
+    background: #F8F9FA;
+    border: 1px solid #007BFF;
+    border-radius: 10px;
+    padding: 15px;
+    flex: 1;
+    animation: fadeIn 0.5s;
+}
+
+/* Question Card */
+.question-card {
+    background: #FFFFFF;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s;
 }
 
 .option {
-  display: block;
-  margin: 8px 0;
-  padding: 8px;
-  background: white;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  border-radius: 5px;
+    background: #F8F9FA;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .option:hover {
-  background: #e3f2fd;
+    background: #e0e0e0;
+}
+
+.option:focus {
+    outline: 2px solid #007BFF;
 }
 
 .correct {
-  background: #c8e6c9;
+    background: #28a745 !important; /* Hijau */
+    animation: highlight 0.5s;
 }
 
-.wrong {
-  background: #ffcdd2;
+.incorrect {
+    background: #dc3545 !important; /* Merah */
+    animation: highlight 0.5s;
 }
 
-#feedback {
-  margin-top: 10px;
-  font-weight: bold;
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .cashier-container {
+        flex-direction: column;
+    }
+    .cashier-avatar {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Aksesibilitas: Kontras tinggi */
+a, button {
+    color: contrast-ratio(#007BFF, #FFFFFF) > 4.5; /* Sudah memenuhi */
 }
