@@ -1,52 +1,52 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulasi Literasi Keuangan - Pegadaian</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Literasi Keuangan: Memahami Gadai, Bunga, dan Risiko</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <h1>Simulasi Literasi Keuangan</h1>
-  <div id="scoreBox">Skor: <span id="score">0</span></div>
-</header>
-
-<main>
-
-  <!-- Start Screen -->
-  <section id="startScreen" class="active">
-    <h2>Memahami Gadai, Bunga & Risiko</h2>
-    <p>Kamu akan belajar tentang sistem gadai melalui simulasi interaktif.</p>
-    <button id="startBtn">Mulai Simulasi</button>
-  </section>
-
-  <!-- Game Screen -->
-  <section id="gameScreen">
-    <div id="progressContainer">
-      <div id="progressBar"></div>
+    <!-- Halaman Pembuka -->
+    <div id="intro-page" class="page active">
+        <h1>Simulasi Literasi Keuangan: Memahami Gadai, Bunga, dan Risiko</h1>
+        <p>Selamat datang! Dalam simulasi ini, Anda akan berperan sebagai pelajar yang mengunjungi pegadaian. Kasir virtual akan menjelaskan konsep gadai, bunga sederhana, nilai taksiran, dan risiko gagal bayar. Jawab soal-soal untuk menguji pemahaman Anda.</p>
+        <button id="start-btn" aria-label="Mulai Simulasi">Mulai Simulasi</button>
     </div>
 
-    <div id="dialogBox"></div>
+    <!-- Halaman Simulasi -->
+    <div id="simulation-page" class="page">
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
+        <div id="score-indicator">Skor: 0</div>
+        <div class="cashier-container">
+            <!-- Ilustrasi Karakter Kasir (Flat Design Sederhana) -->
+            <div class="cashier-avatar" aria-hidden="true"></div>
+            <div id="dialog-box" class="dialog-box" role="dialog" aria-live="polite">
+                <p id="dialog-text"></p>
+            </div>
+        </div>
+        <div id="question-container" class="question-card" style="display: none;">
+            <h2 id="question-title"></h2>
+            <div id="options"></div>
+            <div id="feedback" aria-live="assertive"></div>
+        </div>
+        <button id="next-btn" style="display: none;" aria-label="Lanjutkan">Lanjutkan</button>
+        <button id="learn-again-btn" style="display: none;" aria-label="Pelajari Lagi">Pelajari Lagi</button>
+    </div>
 
-    <div id="questionBox"></div>
+    <!-- Halaman Hasil -->
+    <div id="result-page" class="page">
+        <h1>Hasil Simulasi</h1>
+        <p id="score-text"></p>
+        <p id="evaluation-text"></p>
+        <p id="recommendation-text"></p>
+        <button id="restart-btn" aria-label="Ulangi Simulasi">Ulangi Simulasi</button>
+        <button id="learn-again-final" aria-label="Pelajari Lagi">Pelajari Lagi</button>
+    </div>
 
-    <div id="feedback"></div>
-
-    <button id="nextBtn" style="display:none;">Lanjut</button>
-  </section>
-
-  <!-- Result Screen -->
-  <section id="resultScreen">
-    <h2>Hasil Akhir</h2>
-    <p id="finalScore"></p>
-    <p id="evaluation"></p>
-    <button onclick="location.reload()">Ulangi Simulasi</button>
-  </section>
-
-</main>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
